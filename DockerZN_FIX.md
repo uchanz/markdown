@@ -27,7 +27,8 @@ tags:
 
 #### Diagaram Virtual MAchine 
 
-![Diagram VM ](image%20markdown/Diagram%20VM%20.png)
+[![Diagram-Virtual-Machine.png](https://i.postimg.cc/XNKXDn3V/Diagram-Virtual-Machine.png)](https://postimg.cc/0rQ8zRb3)
+
 
 ### Container
 
@@ -39,7 +40,7 @@ tags:
  
 #### Diagaram Container 
 
-![Diagram Container](image%20markdown/Diagram%20Container.png)
+[![Diagram-Container.png](https://i.postimg.cc/R0jq2FN0/Diagram-Container.png)](https://postimg.cc/nsGHDnK8)
 
 
 ### Docker
@@ -58,7 +59,7 @@ tags:
 - Docker Client dan Docker Daemon bisa berjalan di satu sistem yang sama 
 - Docker Client dan Docker Daemon berkomunikasi menggunakan **REST API**
 
-![Diagram Docker Architecture ](image%20markdown/Diagram%20Docker%20Architecture%20.png)
+[![Diagram-Docker-Architecture.png](https://i.postimg.cc/vTvB1tX1/Diagram-Docker-Architecture.png)](https://postimg.cc/4HmZqtDZ)
 
 
 #### Menginstall Docker 
@@ -73,6 +74,8 @@ tags:
 - Untuk mengecek apakah Docker Daemon sudah berjalan, kita bisa gunakan :
 
   ` docker version `
+
+[![Docker-Version.png](https://i.postimg.cc/zfLVdWDM/Docker-Version.png)](https://postimg.cc/cKSxCvnM)
 
 #### Docker Registry
 
@@ -132,7 +135,7 @@ tags:
 
   `$ docker container ls`
   
-![Docker container logs v2](image%20markdown/Docker%20container%20logs%20v2.png)
+[![Docker-container-logs-v2.png](https://i.postimg.cc/25JBmGXr/Docker-container-logs-v2.png)](https://postimg.cc/yJmNymHb)
 
 ##### Membuat Container 
 
@@ -178,7 +181,8 @@ ex :
   
 - Atau jika ingin melihat log secara realtime, kita juga bisa menggunakan perintah:
   `$ docker container logs -f containerID/namacontainer`
-![Docker container logs](image%20markdown/Docker%20container%20logs.png)
+  
+[![Docker-container-logs.png](https://i.postimg.cc/NGRrq18v/Docker-container-logs.png)](https://postimg.cc/0r2N7KHV)
 
 
 ##### Container Exec
@@ -217,10 +221,9 @@ ex :
 - Jika kita ingin melakukan port forwarding lebih dari satu, kita bisa tambahkan dua kali parameter `--publish` 
 
 - Publish juga bisa di singkat memggunakan 
-`$ docker container create --name contohnginx --publish 8080:80
+`$ docker container create --name contohnginx --publish 8080:80`
 
-![docker nginx](image%20markdown/docker%20nginx.png) 
-![Nginx](image%20markdown/Nginx.png)
+[![Nginx.png](https://i.postimg.cc/zXSWWn3F/Nginx.png)](https://postimg.cc/dL3LcZ2h)
 
 ================================================================================
 
@@ -239,7 +242,7 @@ ex :
 
 `docker container create --name namaconatiner --env KEY="value" --env KEY2="value" image:tag`
 
-![docker env](image%20markdown/docker%20env.png)
+[![docker-env.png](https://i.postimg.cc/PqN8B9yS/docker-env.png)](https://postimg.cc/kV34SjkS)
 
 
 
@@ -251,6 +254,7 @@ ex :
 - Kita bisa gunakan command sbb:
 ` $ docker container stats`
 
+[![docker-stats.png](https://i.postimg.cc/PJ1DSDyh/docker-stats.png)](https://postimg.cc/7JYb6fjQ)
 
 ##### Container Resource Limit
 
@@ -266,9 +270,9 @@ ex: 100m artinya 100 mega bytes
 
 ###### CPU
 - Selain mengatur Memory, Kita juga bisa menentukan berapa jumlah CPU yang bisa digunkan oleh container dengan parameter `--cpu`
-- Jika misal kita set dengan nilai 1.5 artinya container bisa menggunakan satu dan setengah CPU CORE
+- Jika misal kita set dengan nilai 1.5 artinya container bisa menggunakan satu dan setengah CPU CORE 
 
-![docker resource limit ](image%20markdown/docker%20resource%20limit%20.png)
+[![docker-resource-limit.png](https://i.postimg.cc/13mFKfqh/docker-resource-limit.png)](https://postimg.cc/7fRbHP9m)
 
 
 #### Bind Mounts
@@ -279,7 +283,7 @@ ex: 100m artinya 100 mega bytes
 - Untuk melakukan mounting, kita bisa menggunakan parameter`--mount` ketika membuat container 
 - isi dari parameter `--mount` memiliki aturan tersendiri 
 
- ![docker mount](image%20markdown/docker%20mount.png)
+ [![docker-mount.png](https://i.postimg.cc/RVzKNPC0/docker-mount.png)](https://postimg.cc/V5DdhWCy)
  
  ##### Melakukan Mounting
  
@@ -293,7 +297,7 @@ ex:
 
 `docker container create --name mongodata --publish 27018:27018 --mount "type=bind,source=/Users/RU9946/Documents/Ruslan/Docker/my-Docker/mongodb,destination=/data/db" --env MONGO_INITDB_ROOT_USERNAME=uchan --env MONGO_INITDB_ROOT_PASSWORD=uchan mongo:latest`
 
-![docker mount data ](image%20markdown/docker%20mount%20data%20.png)
+[![docker-mount-data.png](https://i.postimg.cc/QddBTw2j/docker-mount-data.png)](https://postimg.cc/D8RyVjfN)
 
 #### Docker Volume
 
@@ -308,6 +312,59 @@ ex:
 - Kita bisa menggunakan command berikut untuk melihat daftar volume :
 `docker volume ls` 
 
-![docker volume](image%20markdown/docker%20volume.png)
+[![docker-volume.png](https://i.postimg.cc/8zZ6XNRF/docker-volume.png)](https://postimg.cc/FYJz7tnm)
 
 ##### Membuat Volume 
+
+- Untuk mebuat Volume , kita busa gunakan perintah :
+
+`$ docker volume create namavolume'
+
+##### Menghapus Volume
+
+- Volume yang tidak digunakan oleh container bisa kita hapus, tapi jika volume digunakan container, maka tidak bisa kita hapus sampai container nya dihapus
+- Untuk menghapus Volume, kita bisa menggunakan perintah 
+
+`$ docker volume rm namavolume`
+
+##### Container Volume
+
+- Volume yang sudah kita buat, bisa kita gunakan di container 
+- Keuntungan menggunakan Volume adalah, jika container kita hapus, data akan tetap aman di volume 
+- Cara menggunakan volume di container sama dengan menggunakan bind mount, kita bisa menggunakan parameter `--mount`, namun dengan menggunakan **type volume dan source nama volume** 
+
+
+##### Backup Volume
+
+- Sayang, sampai saat ini ,tidak ada cara otomatis melakukan backup volume yang sudah kita buat 
+- Namun kita nosa memanfaatkancontainer untuk melakukan backup data yang ada di dalam volume ke dalam archive zip atau tar.gz
+
+###### Tahapan Melakukan Backup
+
+- Matikan container yang menggunakan volume yang kita ingin kita backup
+- Buat Container baru dengan dua mount, Volume yang kita ingin kita backup, dan bind mount folder dari sistem host
+- Lakukan backup menggunakan container dengan cara mengarchive isi volume dan simpan di bind folder 
+- isi file backup sekarang ada di folder sistem host
+- Delete container yang kita gunakan untuk melakukan backup
+
+##### Restore Volume
+
+- Setelah melakukan backup volumek ke dalam file archive, kita bisa menyimpan file archive tersebut ke tempat yang lebih aman, misal cloud storage
+- Sekarang kita akan mencoba melakukan restore data backup ke volume yang baru, untuk memastikan data yang kita backup tidak corrupt
+
+###### Tahapan Melakukan Restore 
+
+- Buat Volume baru untuk melakukan restore data backup
+- Buat Container baru dengan dua mount, Volume baru untuk restore backup dan bind mount folde dari sistem host yang berisi file backup.
+- Lakukan restore dengan menggunakan container dengan cara mengextrak isi backup file kedalam volume 
+- isi file backup sekarang sudah di restore ke volume 
+- Delete container yang kita gunakan untuk melakukan restore 
+- Volume baru yang berisi data backup siap digunakan oleh container baru 
+
+##### Docker Network
+
+- Saat kita membuat container di docker, secara default container akan salaing terisolasi satu sama lainya, jadi jika kita mencoba memanggil antar container, bisa dipastikan bahwa kita tidak akan bisa melakukan nya 
+- Docker memeliliki fitur network yang bisa digunakan untuk membuat jaringan di dalam docker
+- Dengan menggunakan Network, kita bisa mengkoneksikan container dengan container lain dalam satu network yang sama
+- Jika beberap container terdapat pada satu Network yang sama, maka secara otomatis container tersebut bisa saling berkomunikasi 
+- 
