@@ -1,8 +1,6 @@
 ---
 title: DockerZN
 date: {{ thu 30 2021 }}
-tags:
-- template
 ---
 
 # Docker 

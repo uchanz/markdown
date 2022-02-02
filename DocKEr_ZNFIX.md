@@ -2,13 +2,13 @@
 ---
 title: DockerZN
 date: {{ thu 30 2021 }}
-tags:
-- template
+tags:'rev1'
+
 ---
 
 # Docker 
 
-### Agenda
+## Agenda
 - Pengenalan Container
 - Pengenalan Docker 
 - Mengintall Docker 
@@ -114,19 +114,19 @@ tags:
 
   ` docker image rm alpine `
 
-#### Docker Container 
+### Docker Container 
 
 -  Jika Docker images seperti installer aplikasi, maka Docker Container mirip seperti hasil installannya.
 -  Satu Docker Image bisa digunankan untuk membuat beberap Docker Container, asalkan nama Docker Container nya berbeda.
 -  Jika Kita sudah membuat Docker Container, Maka doker Image yang digunakan tidak bisa di hapus, hal ini dikarenakan sebeneranya **Docker Container tidak meng-copy isi Docker Images, tapi hanya menggunakan isi nya saja.**
 
-##### Status Container 
+#### Status Container 
 
 - Saat kita membuat container, **secara default container tersebut tidak akan berjalan**
 - Mirip seperti ketika kita mengistall aplikasi jika tidak kita jalankan, maka aplikasi tersebut tidak akan berjalan
 - Oleh karena itu, setelah membuat container, kita perlu menjalankannya.
 
-##### Melihat Container
+#### Melihat Container
 
 - Untuk melihat Container, baik yang sedang berjalan atau tidak di Docker Daemon, kita bisa menggunakan command 
 
@@ -138,7 +138,7 @@ tags:
   
 [![Docker-container-logs-v2.png](https://i.postimg.cc/25JBmGXr/Docker-container-logs-v2.png)](https://postimg.cc/yJmNymHb)
 
-##### Membuat Container 
+#### Membuat Container 
 
 - Untuk Membuat Container, Kita bisa gunakan perintah:
 
@@ -149,33 +149,33 @@ ex :
 
    
 
-##### Menjalankan Container 
+#### Menjalankan Container 
 
 - Untuk menjalankan container yang sudah kita buat, kita bisa menggunakan perintah sbb: 
 
   ` $ docker container start containerID/namaContainer ` 
 
  
-##### Menghentikan Container 
+#### Menghentikan Container 
 
 - Untuk menghentikan Container, kita bisa menggunakan perintah sbb:
   
   `$ docker container stop containerID/namacontainer`
   
 
- ##### Menghapus Container 
+ #### Menghapus Container 
  
  - Untuk menghapus container, tentunya dengan syarat kondisi docker sudah dalam keadaan distop, bisa menggunakan perintah sbb:
    
    `$ docker container rm containerID/namacontainer`
 
  
-##### Container Log
+#### Container Log
 
 - Kadang saat terjadi masalah dengan aplikasi yang terdapat di container, sering kali kita ingin melihat detail dari log aplikasi nya 
 - Hal ini dilakukan untuk melihat detil kejadian apa yang terjadi di aplikasi, sehingga akan memudah kan kita ketika mendapat masalah
 
-###### Melihat Container Log
+##### Melihat Container Log
 
 - Untuk melihat log aplikasi di container kita, kita bisa menggunakan perintah: 
   `$ docker container logs containerID/namacontainer`
@@ -186,7 +186,7 @@ ex :
 [![Docker-container-logs.png](https://i.postimg.cc/NGRrq18v/Docker-container-logs.png)](https://postimg.cc/0r2N7KHV)
 
 
-##### Container Exec
+#### Container Exec
 
 - Saat kita membuat container, aplikasi yang terdapat di dalam container  hanya bisa di akses dari dalam container.
 - Oleh karena itu, kadang kita perlu masuk ke dalam containernya itu sendiri
@@ -202,18 +202,18 @@ ex :
 - `/bin/bash` contoh kode program yang terdapat di dalam container 
 
 
-##### Container Port 
+#### Container Port 
 
 - Saat menjalankan container, container tersebut terisolasi di dalam Docker
 - Artinya sistem host, tidak dapat mengakses aplikasi yang ada di dalam container secara langsung, salah satu cara nya adalah menggunakan **Container Exec** untuk masuk kedalam container.
 - Biasanya, Sebuah aplikasi berjalan pada **port** tertentu   
 
-###### Port Forwarding
+##### Port Forwarding
 
 - Docker memiliki kemampuan untuk melakukan **port forwading**, yaitu meneruskan sebuah port yang terdapat di sistem hostnya kedalam Docker Container 
 - Cara ini cocok jika kita ingin mengekspos port yang terdapat di container ke luar melalui sistem hostnya 
 
-###### Melakukan Port forwarding 
+##### Melakukan Port forwarding 
 
 - Untuk melakukan port forwarding, kita bisa menggunkan perintah berikut ketika membuat container nya
 
@@ -228,7 +228,7 @@ ex :
 
 ================================================================================
 
-##### Container Enviroment Variable 
+#### Container Enviroment Variable 
 
 - Saat Membuat Aplikasi Menggunakan **Environment Variable** adalah salah satu teknik agar konfigurasi aplikasi bisa diubah secara dinamis.
 
@@ -300,13 +300,13 @@ ex:
 
 [![docker-mount-data.png](https://i.postimg.cc/QddBTw2j/docker-mount-data.png)](https://postimg.cc/D8RyVjfN)
 
-#### Docker Volume
+### Docker Volume
 
 - Fitur Bind Mounts sudah ada sejak Docker versi awal, diversi terbaru direkomendasikan menggunakan Docker Volume
 - Docker Volume mirip dengan Bind Mounts, bedanya adalah terdapat management Volume, dimana kita bisa membuat volume, melihat daftar volume dan menghapus volume
 - Volume sendiri bisa dianggap storage yang digunakan untuk menyimpan data, bedanya dengan Bind Mounts, data disimpan pada sistem host, sedangkan pada volume, data dimanage di docker
 
-##### Melihat Docker Volume
+#### Melihat Docker Volume
 
 - Saat kita membuat container, dimanakah data di dalam container itu disimpan, secara default semua data container disimpan di dalam volume 
 - Jika kita coba melihat docker volume, kita akan lihat bahwa ada banyak volume yang sudah terbuat, walaupun kita belum pernah membuatnya sama sekali
@@ -319,7 +319,7 @@ ex:
 
 - Untuk mebuat Volume , kita busa gunakan perintah :
 
-`$ docker volume create namavolume'
+`$ docker volume create namavolume`
 
 ##### Menghapus Volume
 
@@ -328,19 +328,20 @@ ex:
 
 `$ docker volume rm namavolume`
 
-##### Container Volume
+#### Container Volume
 
 - Volume yang sudah kita buat, bisa kita gunakan di container 
 - Keuntungan menggunakan Volume adalah, jika container kita hapus, data akan tetap aman di volume 
 - Cara menggunakan volume di container sama dengan menggunakan bind mount, kita bisa menggunakan parameter `--mount`, namun dengan menggunakan **type volume dan source nama volume** 
 
+[![docker-container-volume.png](https://i.postimg.cc/4NM32WMt/docker-container-volume.png)](https://postimg.cc/JGNmG5R4)
 
 ##### Backup Volume
 
 - Sayang, sampai saat ini ,tidak ada cara otomatis melakukan backup volume yang sudah kita buat 
-- Namun kita nosa memanfaatkancontainer untuk melakukan backup data yang ada di dalam volume ke dalam archive zip atau tar.gz
+- Namun kita nosa memanfaatkan container untuk melakukan backup data yang ada di dalam volume ke dalam archive zip atau tar.gz
 
-###### Tahapan Melakukan Backup
+##### Tahapan Melakukan Backup
 
 - Matikan container yang menggunakan volume yang kita ingin kita backup
 - Buat Container baru dengan dua mount, Volume yang kita ingin kita backup, dan bind mount folder dari sistem host
@@ -362,10 +363,136 @@ ex:
 - Delete container yang kita gunakan untuk melakukan restore 
 - Volume baru yang berisi data backup siap digunakan oleh container baru 
 
-##### Docker Network
+#### Docker Network
 
 - Saat kita membuat container di docker, secara default container akan salaing terisolasi satu sama lainya, jadi jika kita mencoba memanggil antar container, bisa dipastikan bahwa kita tidak akan bisa melakukan nya 
 - Docker memeliliki fitur network yang bisa digunakan untuk membuat jaringan di dalam docker
 - Dengan menggunakan Network, kita bisa mengkoneksikan container dengan container lain dalam satu network yang sama
 - Jika beberap container terdapat pada satu Network yang sama, maka secara otomatis container tersebut bisa saling berkomunikasi 
-- 
+
+[![docker-network.png](https://i.postimg.cc/Y0DSHRC5/docker-network.png)](https://postimg.cc/1V6S0p6B)
+
+#### Network Driver
+
+- Saat kita membuat Network di Docker, kita perlu menentukan driver yang ingin kita gunakan, ada banyak driver yang bisa kita gunakan, tapi kadang ada syarat sebuah driver network agar kita bisa gunakan.
+- ***bridge***, yaitu driver yang digunakan untuk mebuat network virtual yang memungkinkan container yang terkoneksi di bridge network yang sama saling berkomunikasi 
+- ***host***, yaitu driver yang digunakan untuk membuat network yang sama dengan sistem host. ***host hanya jalan di docker linux***, tidak bisa digunakan di mac dan windows
+- ***none***, yaitu driver untuk membuat network yang tidak bisa berkomunikasi  
+
+
+##### Melihat Network
+
+- Untuk melihat network di docker, kita bisa gunakan perintah :
+` $ docker network ls `
+
+[![docker-network-ls.png](https://i.postimg.cc/D0N7DzCF/docker-network-ls.png)](https://postimg.cc/gLv9LGFB)
+
+##### Membuat Network 
+
+- Untuk membuat Network baru, kita bisa menggunkan perintah :
+`$ docker network create --driver namadriver namanetwork`
+
+[![docker-network-create.png](https://i.postimg.cc/ZK1TxCBx/docker-network-create.png)](https://postimg.cc/2V7Rzjx1)
+
+##### Menghapus Network 
+
+- Untuk menghapus Network, kita bisa gunakan perintah:
+` docker network rm namanetwork`
+
+- Network tidak bisa dihapus jika sudah digunakan oleh container, kita harus menghapus container nya terlebih dahulu dari network 
+
+[![docker-rm-network.png](https://i.postimg.cc/J001PX5P/docker-rm-network.png)](https://postimg.cc/8f8QCj36)
+
+##### Container Network 
+
+- Setelah kita membuat Network, kita bisa menambahkan container ke network 
+- Container yang terdapat di dalam network yang sama bisa saling berkomunikasi (tergantung jenis driver networknya)
+- Container bisa mengakses container lain dengan menyebutkan hostname dari container nya, ***yaitu nama container nya***
+
+##### Membuat Container dengan Network
+
+- Untuk menambahkan container ke network, kita bisa menambahkan perintah "--network" ketika membuat container: 
+`$ docker container create --name namacontainer --network namanetwork image:tag`
+
+[![membuat-container-network.png](https://i.postimg.cc/fWqWkHMF/membuat-container-network.png)](https://postimg.cc/PNZnRQpz)
+
+- contoh enviorment koneksidb nya :
+
+    `ME_CONFIG_MONGODB_ADMINUSERNAME: root`
+     `ME_CONFIG_MONGODB_ADMINPASSWORD: kunci`
+     `ME_CONFIG_MONGODB_URL: mongodb://root:kunci@hostcon:27017/`
+     
+- contoh mengkoneksikan container network
+
+`docker network create --driver bridge mongonetwork2` 
+
+`docker container create --name mongodb2 --network mongonetwork2  --env MONGO_INITDB_ROOT_USERNAME=uchan --env MONGO_INITDB_ROOT_PASSWORD=uchanpas mongo:latest`
+
+`docker image pull mongo-express`
+
+
+`docker container create --name mongodbexpress2 --network mongonetwork2 --publish 8081:8081 --env ME_CONFIG_MONGODB_SERVER=mongodb2 --env
+ME_CONFIG_MONGODB_ADMINUSERNAME=uchan --env ME_CONFIG_MONGODB_ADMINPASSWORD=uchanpas mongo-express`
+
+`docker container start mongodb2` 
+
+`docker container start mongodbexpress2`
+
+[![mangoexpress.png](https://i.postimg.cc/0NvPhFC6/mangoexpress.png)](https://postimg.cc/18vkqW2P)
+
+##### Menghapus Container dari Network 
+
+- Jika diperlukan, kita juga bisa menghapus container dari networek dengan perintah:
+
+`$ docker network disconnect namanetwork namacontainer`
+
+[![docker-network-rm.png](https://i.postimg.cc/sg736s5d/docker-network-rm.png)](https://postimg.cc/k2MrDrjf)
+
+##### Menambahkan Container ke Network
+
+- Jika containernya terlajur dibuat, kita juga bisa menambahkan container yang sudah dibuat ke network dengan perintah : 
+
+`$ docker network connect namanetwork namacontainer`
+
+
+### Inspect
+
+- Setelah kita mendowload image, atau membuat network, voulume dan container, terkadang kita ingin melihat detai dari tiap hal tersebut 
+- Misalkan kita ingin melihat detail dari image, perintah apa yang digunakan oleh image tersebut?Environment variable apa yang digunakan?ato port yang digunakan?
+- Misal kita juga ingin melihat detil dari container, Volume apa yang digunakan?dll
+- Docker memilik fitur bernama inspect, yang bisa digunakan di image, container , volume dan network
+- Dengan fitur ini, kitabisa melihat detail dari tiap hal yang ada di docker 
+
+
+#### Menggunakan Inspect
+
+- Untuk melihat detail dari image, gunakan 
+`$ docker image inspect namaimage`
+- Untuk meligat detail dari container, gunakan:
+`$ docker container inspect namacontainer`
+- Untuk melihat detail dari volume, gunakan:
+`$ docker volume inspect namavolume`
+- Untuk meligat detail dari network, gunakan:
+`$ docker network inspect namanetwork`
+
+
+#### Prune
+
+- Saat kita menggunakan Docker, kadang ada kalanya kita ingin membersikan hal-hal yang sudah tidak dignakan lagi di Docker, misal container yang sudah di stop, image yang tidak digunakan oleh container, atau volume yang sudah tidak di gunakan oleh container.
+- Fitur untuk membersihkan secara otomatis di Docker bernama ***Prune***
+- Hampir di semua perintah di Docker mendukung Prune
+
+
+##### Perintah Prune 
+
+- Untuk menghapus semua container yang sudah stop gunakan :
+`$ docker container prune`
+- Untuk menghapus semua image yang tidak digunakan container gunakan :
+`$ docker image prune`
+- Untuk menghapus semua network yang tidak digunakan container :
+`$ docker netwoerk prune
+- Untuk menghapus semua volume yang tidak digunakan container, gunakan 
+`$ docker volume prune`
+
+- Atau kita bisa menggunakan satu printah untuk menghapus container, network and image yang sudah tidak digunakan menggunakan perintah:
+`$ docker system prune` 

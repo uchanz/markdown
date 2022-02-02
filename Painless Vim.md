@@ -38,13 +38,15 @@ But it seem like a bummer to have to do this by hand every time you start, You'r
 
 Now thay your're in file. it's time to move around a little bit.
 
-`.     k
-'h.           l'
-`.     j.       `
 
+```
+       k 
+h.             l
+       j
+```
 this is supper unintuitive way to telling keys will move your cursor which directions 
 
-- h move your cursor one space **lef**
+- h move your cursor one space **left**
 - l move your cursor one space **right**
 - k move your cursor one line **up**
 - j move your cursor one line **down**
